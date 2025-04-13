@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahil Sable - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <button id="darkModeToggle" class="dark-mode-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <nav class="navbar">
+        <div class="nav-brand">Sahil Sable</div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content" data-aos="fade-up">
+            <h1>Hi, I'm <span class="highlight">Sahil Sable</span></h1>
+            <p class="subtitle">Web Developer & Designer</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn primary">View My Work</a>
+                <a href="#contact" class="btn secondary">Contact Me</a>
+            </div>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2 data-aos="fade-up">About Me</h2>
+        <div class="about-content" data-aos="fade-up">
+            <div class="about-text">
+                <p>I am a passionate web developer with expertise in creating beautiful and functional websites. I love turning complex problems into simple, beautiful, and intuitive solutions.</p>
+                <div class="skills">
+                    <h3>My Skills</h3>
+                    <div class="skill-tags">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>UI/UX Design</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-stats">
+                <div class="stat-item">
+                    <h3>5+</h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-item">
+                    <h3>30+</h3>
+                    <p>Happy Clients</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2 data-aos="fade-up">My Projects</h2>
+        <div class="add-project-container">
+            <button class="btn primary github-signin-btn">
+                <i class="fab fa-github"></i> Sign in with GitHub
+            </button>
+            <button class="btn primary add-github-project-btn" style="display: none;">
+                <i class="fab fa-github"></i> Add GitHub Project
+            </button>
+        </div>
+        <div class="project-grid">
+            <div class="project-card" data-aos="fade-up">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/300x200" alt="Project">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <div class="github-integration">
+                                <input type="text" class="github-repo-input" placeholder="Enter GitHub repository URL (e.g., https://github.com/username/repo)">
+                                <button class="btn small github-btn"><i class="fab fa-github"></i> Add Repository</button>
+                                <div class="github-status"></div>
+                            </div>
+                            <a href="#" class="btn small project-demo-link"><i class="fas fa-link"></i> Live Demo</a>
+                            <a href="#" class="btn small github-source-btn" target="_blank"><i class="fab fa-github"></i> Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Project Title</h3>
+                    <p>Project description goes here.</p>
+                    <div class="project-tech">
+                        <span>Technologies</span>
+                    </div>
+                    <div class="github-stats">
+                        <span class="stars"><i class="fas fa-star"></i> <span class="star-count">0</span></span>
+                        <span class="forks"><i class="fas fa-code-branch"></i> <span class="fork-count">0</span></span>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more project cards as needed -->
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <h2 data-aos="fade-up">Testimonials</h2>
+        <div class="testimonial-slider" data-aos="fade-up">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"Sahil is an exceptional web developer who consistently delivers high-quality work. His attention to detail and problem-solving skills are outstanding. He transformed our website into a modern, user-friendly platform that significantly improved our user engagement."</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://via.placeholder.com/50" alt="Client">
+                    <div>
+                        <h4>Sarah Johnson</h4>
+                        <p>CEO, TechSolutions Inc.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"Working with Sahil was a game-changer for our project. His expertise in front-end development and his ability to understand complex requirements made the development process smooth and efficient. He's a true professional who goes above and beyond to ensure client satisfaction."</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://via.placeholder.com/50" alt="Client">
+                    <div>
+                        <h4>Michael Chen</h4>
+                        <p>Project Manager, Digital Innovations</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"Sahil's technical skills are matched only by his excellent communication and teamwork abilities. He consistently delivered clean, maintainable code and was always willing to help team members. His contributions were invaluable to our project's success."</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://via.placeholder.com/50" alt="Client">
+                    <div>
+                        <h4>Emily Rodriguez</h4>
+                        <p>Lead Developer, WebCraft Studios</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="blog">
+        <h2 data-aos="fade-up">Latest Blog Posts</h2>
+        <div class="blog-grid">
+            <div class="blog-card" data-aos="fade-up">
+                <img src="https://via.placeholder.com/300x200" alt="Blog Post">
+                <div class="blog-content">
+                    <h3>Blog Post Title</h3>
+                    <p class="blog-date">March 15, 2024</p>
+                    <p>A brief excerpt from the blog post...</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <!-- Add more blog cards as needed -->
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 data-aos="fade-up">Get in Touch</h2>
+        <div class="contact-content" data-aos="fade-up">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <a href="mailto:sahilsable6654@gmail.com" class="email-link">sahilsable6654@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>+91 8806816503</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Location</h3>
+                        <p>Kopargaon, Maharashtra, India</p>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form" data-aos="fade-left">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2024 Sahil Sable. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
