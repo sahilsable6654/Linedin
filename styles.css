@@ -6,19 +6,24 @@
 }
 
 :root {
-    --primary-color: #3498db;
-    --secondary-color: #2c3e50;
-    --text-color: #333;
-    --bg-color: #fff;
-    --card-bg: #fff;
-    --border-color: #ddd;
-    --shadow-color: rgba(0, 0, 0, 0.1);
+    --primary-color: #00d8ff; /* Neon blue */
+    --primary-hover: #00b3cc;
+    --accent-color: #ff00cc; /* Neon pink */
+    --accent-hover: #d100a6;
+    --secondary-color: #18181b;
+    --text-color: #fff;
+    --text-secondary: #b3b3b3;
+    --bg-color: #0a0a0a;
+    --card-bg: #18181b;
+    --border-color: #222;
+    --shadow-color: rgba(0, 216, 255, 0.15);
 }
 
 [data-theme="dark"] {
-    --primary-color: #3498db;
+    --primary-color: #2196F3;
+    --primary-hover: #1976D2;
     --secondary-color: #ecf0f1;
-    --text-color: #ecf0f1;
+    --text-color: #fff;
     --bg-color: #1a1a1a;
     --card-bg: #2d2d2d;
     --border-color: #444;
@@ -119,7 +124,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px var(--shadow-color);
+    box-shadow: 0 2px 10px var(--shadow-color);
     z-index: 1000;
     transition: background-color 0.3s;
 }
@@ -153,49 +158,160 @@ body {
 
 .nav-links a:hover {
     color: var(--primary-color);
+    text-shadow: 0 0 8px var(--primary-color);
 }
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a0a0a 0%, #18181b 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--card-bg) 0%, var(--bg-color) 100%);
     text-align: center;
-    padding: 0 2rem;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: 4rem;
     margin-bottom: 1rem;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 12px var(--primary-color), 0 0 24px var(--accent-color);
+    animation: fadeInUp 1s ease;
 }
 
 .highlight {
-    color: #3498db;
+    color: var(--accent-color);
+    text-shadow: 0 0 8px var(--accent-color);
 }
 
 .subtitle {
     font-size: 1.5rem;
-    color: #666;
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 2rem;
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+.cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.cta-buttons .btn {
+    min-width: 150px;
+    text-align: center;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.btn:hover::before {
+    transform: translateX(0);
+}
+
+.btn.primary {
+    background: var(--primary-color);
+    color: #18181b;
+    box-shadow: 0 0 16px var(--primary-color);
+    border: none;
+}
+
+.btn.primary:hover {
+    background: var(--accent-color);
+    color: #fff;
+    box-shadow: 0 0 24px var(--accent-color);
+}
+
+.btn.secondary {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 8px var(--primary-color);
+}
+
+.btn.secondary:hover {
+    background: var(--primary-color);
+    color: #18181b;
+    box-shadow: 0 0 16px var(--primary-color);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .social-icons {
-    margin-top: 2rem;
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     justify-content: center;
+    animation: fadeInUp 1s ease 0.6s both;
 }
 
 .social-icon {
-    color: var(--text-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
     font-size: 1.5rem;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 8px var(--primary-color);
 }
 
 .social-icon:hover {
-    color: var(--primary-color);
+    background: var(--primary-color);
+    color: #18181b;
+    box-shadow: 0 0 16px var(--primary-color);
 }
 
 /* About Section */
@@ -232,17 +348,134 @@ body {
 }
 
 .skill-tags span {
-    background-color: #f0f0f0;
+    background: var(--accent-color);
+    color: #fff;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
+    box-shadow: 0 0 8px var(--accent-color);
+}
+
+/* Resume Section */
+.resume {
+    padding: 5rem 2rem;
+    background: var(--bg-color);
+}
+
+.resume-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.resume-preview {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 32px var(--shadow-color);
+    border: 1px solid var(--border-color);
+}
+
+.resume-placeholder {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-secondary);
+}
+
+.resume-placeholder i {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.resume-file {
+    width: 100%;
+}
+
+.resume-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.resume-actions .btn {
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+#removeResume {
+    background: #e74c3c;
+    color: white;
+    border: none;
+}
+
+#removeResume:hover {
+    background: #c0392b;
+}
+
+/* Upload Status Styles */
+.upload-status {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    background: var(--card-bg);
+    color: var(--text-color);
+    box-shadow: 0 2px 10px var(--shadow-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+    animation: slideIn 0.3s ease;
+}
+
+.upload-status.success {
+    background: #2ecc71;
+    color: white;
+}
+
+.upload-status.error {
+    background: #e74c3c;
+    color: white;
+}
+
+.upload-status.info {
+    background: #3498db;
+    color: white;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Resume Viewer Styles */
+#resumeViewer {
+    width: 100%;
+    height: 600px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
 }
 
 /* Projects Section */
+.projects {
+    padding: 80px 20px;
+    background: var(--bg-color);
+}
+
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -251,78 +484,108 @@ body {
     background: var(--card-bg);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 5px 15px var(--shadow-color);
-    transition: transform 0.3s;
+    box-shadow: 0 4px 32px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-}
-
-.project-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.project-card h3 {
-    padding: 1rem;
-    color: #2c3e50;
-}
-
-.project-card p {
-    padding: 0 1rem 1rem;
-    color: #666;
-}
-
-.project-links {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: center;
-}
-
-.btn.small {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
+    box-shadow: 0 0 32px var(--primary-color), 0 0 16px var(--accent-color);
 }
 
 .project-image {
     position: relative;
     overflow: hidden;
+    height: 200px;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.1);
 }
 
 .project-overlay {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    right: 0;
+    bottom: 0;
     background: rgba(0, 0, 0, 0.7);
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s ease;
 }
 
 .project-card:hover .project-overlay {
     opacity: 1;
 }
 
+.project-links {
+    display: flex;
+    gap: 10px;
+}
+
+.project-info {
+    padding: 20px;
+}
+
+.project-info h3 {
+    margin: 0 0 10px;
+    color: var(--text-color);
+    font-size: 1.2rem;
+}
+
+.project-info p {
+    margin: 0 0 15px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
 .project-tech {
     display: flex;
-    gap: 0.5rem;
-    margin-top: 1rem;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
 }
 
 .project-tech span {
+    background: var(--accent-color);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    box-shadow: 0 0 8px var(--accent-color);
+}
+
+.project-demo-link,
+.github-source-btn {
+    background: white;
+    color: var(--primary-color);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.project-demo-link:hover,
+.github-source-btn:hover {
     background: var(--primary-color);
     color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
+    transform: translateY(-2px);
 }
 
 /* Testimonials Section */
@@ -335,8 +598,9 @@ body {
     background: var(--card-bg);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 5px 15px var(--shadow-color);
+    box-shadow: 0 4px 32px var(--shadow-color);
     margin: 1rem;
+    border: 1px solid var(--border-color);
 }
 
 .testimonial-author {
@@ -353,6 +617,11 @@ body {
 }
 
 /* Blog Section */
+.blog {
+    padding: 5rem 2rem;
+    background: var(--bg-color);
+}
+
 .blog-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -363,13 +632,25 @@ body {
 
 .blog-card {
     background: var(--card-bg);
-    border-radius: 10px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 32px var(--primary-color), 0 0 16px var(--accent-color);
+}
+
+.blog-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 
 .blog-content {
-    padding: 1.5rem;
+    padding: 2rem;
 }
 
 .blog-date {
@@ -379,12 +660,17 @@ body {
 }
 
 .read-more {
-    color: var(--primary-color);
-    text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    margin-top: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.read-more:hover {
+    gap: 1rem;
+    color: var(--secondary-color);
 }
 
 /* Contact Section */
@@ -414,32 +700,38 @@ body {
 }
 
 .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .contact-form input,
 .contact-form textarea {
-    padding: 0.8rem;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    font-size: 1rem;
-    background: var(--card-bg);
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
     color: var(--text-color);
+    transition: all 0.3s ease;
 }
 
-.contact-form textarea {
-    height: 150px;
-    resize: vertical;
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 /* Footer */
 footer {
-    background-color: var(--secondary-color);
-    color: white;
+    background: var(--card-bg);
+    color: var(--text-secondary);
     text-align: center;
     padding: 2rem;
+    border-top: 1px solid var(--border-color);
 }
 
 .social-links {
@@ -447,7 +739,7 @@ footer {
 }
 
 .social-links a {
-    color: white;
+    color: var(--primary-color);
     font-size: 1.5rem;
     margin: 0 1rem;
     transition: color 0.3s ease;
@@ -490,6 +782,24 @@ footer {
 
     .project-grid {
         grid-template-columns: 1fr;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 300px;
     }
 }
 
@@ -586,15 +896,17 @@ footer {
     height: 40px;
     border-radius: 50%;
     background: var(--card-bg);
-    color: var(--text-color);
+    color: var(--primary-color);
     transition: all 0.3s ease;
     margin: 0 0.5rem;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 8px var(--primary-color);
 }
 
 .social-icon:hover {
     background: var(--primary-color);
-    color: white;
-    transform: translateY(-3px);
+    color: #18181b;
+    box-shadow: 0 0 16px var(--primary-color);
 }
 
 /* Read More Button */
@@ -628,31 +940,55 @@ footer {
 }
 
 .upload-btn {
+    background: var(--accent-color);
+    color: #fff;
+    box-shadow: 0 0 12px var(--accent-color);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+    gap: 8px;
+    font-size: 16px;
+    margin: 10px 0;
+    text-decoration: none;
 }
 
 .upload-btn:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-2px);
+    background: var(--primary-color);
+    color: #18181b;
+    box-shadow: 0 0 24px var(--primary-color);
+}
+
+.upload-btn i {
+    font-size: 16px;
 }
 
 .upload-status {
     position: absolute;
-    bottom: -25px;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    font-size: 0.8rem;
-    color: var(--text-color);
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: fadeIn 0.3s ease;
+}
+
+.upload-status i {
+    font-size: 1rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
 .upload-progress {
@@ -678,386 +1014,229 @@ footer {
     color: #e74c3c;
 }
 
-/* GitHub Integration Styles */
-.github-integration {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-.github-repo-input {
-    padding: 0.5rem;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    background: var(--card-bg);
-    color: var(--text-color);
-    width: 100%;
-}
-
-.github-btn {
-    background-color: #24292e;
-    color: white;
-    border: none;
+/* LinkedIn Share Button Styles */
+.linkedin-share-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 10px;
+    padding: 12px 24px;
+    background: #0077b5;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 119, 181, 0.2);
+    margin-top: 20px;
 }
 
-.github-btn:hover {
-    background-color: #1b1f23;
+.linkedin-share-btn i {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
 }
 
-.github-status {
-    font-size: 0.8rem;
+.linkedin-share-btn:hover {
+    background: #005e93;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 119, 181, 0.3);
+}
+
+.linkedin-share-btn:hover i {
+    transform: scale(1.1);
+}
+
+.linkedin-share-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 119, 181, 0.2);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    /* border-radius: 50%; */
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 0 24px var(--primary-color);
+    margin: 0 auto 1.5rem auto;
+    display: block;
+    background: #fff;
+}
+
+/* Loading State */
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
     color: var(--text-color);
-    text-align: center;
+    font-size: 1.2rem;
+    gap: 1rem;
+}
+
+.loading i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+/* GitHub Project Cards */
+.project-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 32px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 32px var(--primary-color), 0 0 16px var(--accent-color);
+}
+
+.project-image {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-links {
+    display: flex;
+    gap: 10px;
+}
+
+.project-info {
+    padding: 20px;
+}
+
+.project-info h3 {
+    margin: 0 0 10px;
+    color: var(--text-color);
+    font-size: 1.2rem;
+}
+
+.project-info p {
+    margin: 0 0 15px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.project-tech span {
+    background: var(--accent-color);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    box-shadow: 0 0 8px var(--accent-color);
 }
 
 .github-stats {
     display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-    font-size: 0.9rem;
+    gap: 15px;
+    color: var(--text-secondary);
+    font-size: 14px;
 }
 
 .github-stats span {
     display: flex;
     align-items: center;
-    gap: 0.3rem;
+    gap: 5px;
 }
 
 .github-stats i {
     color: var(--primary-color);
 }
 
-.github-source-btn {
-    background-color: #24292e;
-    color: white;
-    border: none;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 0.9rem;
-    cursor: pointer;
-}
-
-.github-source-btn.enabled {
-    background-color: #2f363d;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-}
-
-.github-source-btn.enabled:hover {
-    background-color: #3f444c;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.github-source-btn i {
-    font-size: 1.1rem;
-}
-
-.add-project-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
+/* GitHub Authentication Buttons */
+.github-signin-btn,
 .add-github-project-btn {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    font-size: 1.1rem;
-    background-color: #24292e;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    gap: 10px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
     transition: all 0.3s ease;
-}
-
-.add-github-project-btn:hover {
-    background-color: #2f363d;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.add-github-project-btn i {
-    font-size: 1.2rem;
 }
 
 .github-signin-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    font-size: 1.1rem;
-    background-color: #24292e;
+    background: #24292e;
     color: white;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
 }
 
 .github-signin-btn:hover {
-    background-color: #2f363d;
+    background: #1b1f23;
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.github-signin-btn i {
-    font-size: 1.2rem;
-}
-
-/* Edit Project Button */
-.edit-project-btn {
-    background-color: var(--primary-color);
+.add-github-project-btn {
+    background: var(--primary-color);
     color: white;
     border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 8px 0;
 }
 
-.edit-project-btn:hover {
-    background-color: var(--primary-color-dark);
+.add-github-project-btn:hover {
+    background: var(--primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Editable Content */
-.editable {
-    transition: all 0.3s ease;
+::-webkit-scrollbar {
+    width: 8px;
+    background: #18181b;
 }
-
-.editable:focus {
-    outline: 2px solid var(--primary-color);
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 8px;
-    border-radius: 4px;
-}
-
-/* Project Tech Tags */
-.project-tech.editable {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.project-tech.editable span {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
-    cursor: text;
-}
-
-.project-tech.editable span:focus {
-    outline: 2px solid var(--primary-color);
-    background-color: var(--primary-color-dark);
-}
-
-/* Project Link Input */
-.project-link-input {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 8px;
-    width: 100%;
-}
-
-.project-url-input {
-    padding: 8px;
-    border: 1px solid var(--primary-color);
-    border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--text-color);
-    width: 100%;
-}
-
-.project-url-input:focus {
-    outline: none;
-    border-color: var(--primary-color-dark);
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.save-link-btn {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-}
-
-.save-link-btn:hover {
-    background-color: var(--primary-color-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.project-demo-link {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 0.9rem;
-    cursor: pointer;
-}
-
-.project-demo-link.enabled {
-    background-color: var(--primary-hover);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.project-demo-link.enabled:hover {
-    background-color: var(--primary-color);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.project-demo-link i {
-    font-size: 1.1rem;
-}
-
-.source-code-input {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 8px;
-    width: 100%;
-}
-
-.source-code-url-input {
-    padding: 8px;
-    border: 1px solid var(--primary-color);
-    border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--text-color);
-    width: 100%;
-}
-
-.source-code-url-input:focus {
-    outline: none;
-    border-color: var(--primary-color-dark);
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.save-source-btn {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-}
-
-.save-source-btn:hover {
-    background-color: var(--primary-color-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.github-project-input {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 10px 0;
-    width: 100%;
-}
-
-.github-project-url-input {
-    padding: 8px 12px;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    width: 100%;
-    font-size: 14px;
-}
-
-.github-project-url-input:focus {
-    border-color: var(--primary-color);
-    outline: none;
-    background-color: var(--bg-color);
-}
-
-.save-github-project-btn {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-size: 14px;
-    border: none;
-}
-
-.save-github-project-btn:hover {
-    background-color: var(--primary-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.save-github-project-btn i {
-    font-size: 16px;
-}
-
-.email-link {
-    color: var(--text-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-    cursor: pointer;
-}
-
-.email-link:hover {
-    color: var(--primary-color);
-    text-decoration: underline;
-}
-
-.contact-item a {
-    color: var(--text-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.contact-item a:hover {
-    color: var(--primary-color);
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 8px;
 } 

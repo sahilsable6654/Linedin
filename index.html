@@ -43,6 +43,7 @@
 
     <section id="home" class="hero">
         <div class="hero-content" data-aos="fade-up">
+            <img src="port.jpg.jpeg" alt="Profile Photo" class="profile-img">
             <h1>Hi, I'm <span class="highlight">Sahil Sable</span></h1>
             <p class="subtitle">Web Developer & Designer</p>
             <div class="cta-buttons">
@@ -91,27 +92,33 @@
         </div>
     </section>
 
+    <section id="resume" class="resume">
+        <h2 data-aos="fade-up">My Resume</h2>
+        <div class="resume-content" data-aos="fade-up">
+            <div class="resume-preview">
+                <div class="resume-placeholder" id="resumePlaceholder">
+                    <i class="fas fa-file-pdf"></i>
+                    <p>No resume uploaded yet</p>
+                </div>
+                <div class="resume-file" id="resumeFile" style="display: none;">
+                    <iframe id="resumeViewer" width="100%" height="600px" frameborder="0"></iframe>
+                    <div class="resume-actions">
+                        <a href="#" id="downloadResume" class="btn small"><i class="fas fa-download"></i> Download</a>
+                        <button id="removeResume" class="btn small"><i class="fas fa-trash"></i> Remove</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="projects" class="projects">
         <h2 data-aos="fade-up">My Projects</h2>
-        <div class="add-project-container">
-            <button class="btn primary github-signin-btn">
-                <i class="fab fa-github"></i> Sign in with GitHub
-            </button>
-            <button class="btn primary add-github-project-btn" style="display: none;">
-                <i class="fab fa-github"></i> Add GitHub Project
-            </button>
-        </div>
-        <div class="project-grid">
-            <div class="project-card" data-aos="fade-up">
+        <div class="project-grid" data-aos="fade-up">
+            <div class="project-card">
                 <div class="project-image">
-                    <img src="https://via.placeholder.com/300x200" alt="Project">
+                    <img src="https://via.placeholder.com/300x200" alt="Project 1">
                     <div class="project-overlay">
                         <div class="project-links">
-                            <div class="github-integration">
-                                <input type="text" class="github-repo-input" placeholder="Enter GitHub repository URL (e.g., https://github.com/username/repo)">
-                                <button class="btn small github-btn"><i class="fab fa-github"></i> Add Repository</button>
-                                <div class="github-status"></div>
-                            </div>
                             <a href="#" class="btn small project-demo-link"><i class="fas fa-link"></i> Live Demo</a>
                             <a href="#" class="btn small github-source-btn" target="_blank"><i class="fab fa-github"></i> Source Code</a>
                         </div>
@@ -119,59 +126,15 @@
                 </div>
                 <div class="project-info">
                     <h3>Project Title</h3>
-                    <p>Project description goes here.</p>
+                    <p>Project description goes here. This is a brief overview of what the project does and its main features.</p>
                     <div class="project-tech">
-                        <span>Technologies</span>
-                    </div>
-                    <div class="github-stats">
-                        <span class="stars"><i class="fas fa-star"></i> <span class="star-count">0</span></span>
-                        <span class="forks"><i class="fas fa-code-branch"></i> <span class="fork-count">0</span></span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
                     </div>
                 </div>
             </div>
             <!-- Add more project cards as needed -->
-        </div>
-    </section>
-
-    <section id="testimonials" class="testimonials">
-        <h2 data-aos="fade-up">Testimonials</h2>
-        <div class="testimonial-slider" data-aos="fade-up">
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <p>"Sahil is an exceptional web developer who consistently delivers high-quality work. His attention to detail and problem-solving skills are outstanding. He transformed our website into a modern, user-friendly platform that significantly improved our user engagement."</p>
-                </div>
-                <div class="testimonial-author">
-                    <img src="https://via.placeholder.com/50" alt="Client">
-                    <div>
-                        <h4>Sarah Johnson</h4>
-                        <p>CEO, TechSolutions Inc.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <p>"Working with Sahil was a game-changer for our project. His expertise in front-end development and his ability to understand complex requirements made the development process smooth and efficient. He's a true professional who goes above and beyond to ensure client satisfaction."</p>
-                </div>
-                <div class="testimonial-author">
-                    <img src="https://via.placeholder.com/50" alt="Client">
-                    <div>
-                        <h4>Michael Chen</h4>
-                        <p>Project Manager, Digital Innovations</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <p>"Sahil's technical skills are matched only by his excellent communication and teamwork abilities. He consistently delivered clean, maintainable code and was always willing to help team members. His contributions were invaluable to our project's success."</p>
-                </div>
-                <div class="testimonial-author">
-                    <img src="https://via.placeholder.com/50" alt="Client">
-                    <div>
-                        <h4>Emily Rodriguez</h4>
-                        <p>Lead Developer, WebCraft Studios</p>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -199,25 +162,25 @@
                     <i class="fas fa-envelope"></i>
                     <div>
                         <h3>Email</h3>
-                        <a href="mailto:sahilsable6654@gmail.com" class="email-link">sahilsable6654@gmail.com</a>
+                        <a href="mailto:sahilsable6654@gmail.com">sahilsable6654@gmail.com</a>
                     </div>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-phone"></i>
                     <div>
                         <h3>Phone</h3>
-                        <p>+91 8806816503</p>
+                        <a href="tel:+918806816503">8806816503</a>
                     </div>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
                     <div>
                         <h3>Location</h3>
-                        <p>Kopargaon, Maharashtra, India</p>
+                        <p>Kopargaon, India</p>
                     </div>
                 </div>
             </div>
-            <form class="contact-form" data-aos="fade-left">
+            <form class="contact-form">
                 <input type="text" placeholder="Your Name" required>
                 <input type="email" placeholder="Your Email" required>
                 <textarea placeholder="Your Message" required></textarea>
@@ -227,13 +190,11 @@
     </section>
 
     <footer>
-        <div class="footer-content">
-            <div class="social-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-            </div>
-            <p>&copy; 2024 Sahil Sable. All rights reserved.</p>
+        <p>&copy; 2025 Sahil Sable. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
         </div>
     </footer>
 
